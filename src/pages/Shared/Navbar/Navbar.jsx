@@ -1,7 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const Navbar = () => {
+
+  const {user , logout} = useContext(AuthContext);
+ 
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
     const navlinks = <>
 
@@ -9,7 +22,16 @@ const Navbar = () => {
 <li><NavLink to="/medicine">Medicine</NavLink></li>
 <li><NavLink to="/doctors">Doctors</NavLink></li>
 <li><NavLink to="/doctors">Ambulence</NavLink></li>
-<li><NavLink to="/login">Login</NavLink></li>
+
+      {user ?
+    <>
+       <span>{user?.displayName}</span>
+      
+        <button onClick={handleLogOut} className="btn btn-accent">Logout</button>
+       </>: <>
+        <li><NavLink to="/login">Login</NavLink></li>
+        </>
+      }
     
     </>
     return (
@@ -45,9 +67,39 @@ const Navbar = () => {
         {navlinks}
           </ul>
         </div>
+
+
         <div className="navbar-end">
-          <a className="btn">Emergency</a>
+{
+
+user ?
+      <Link to="dashboard">
+      <div className="avatar">
+        <div className="ring-primary ring-offset-base-100 w-12 rounded-full ring ring-offset-2">
+          <img className="w-1/2" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
+      
+      </div>
+      </Link>
+      :
+      <div className="hidden">
+         <Link to="dashboard">
+      <div className="avatar">
+        <div className="ring-primary ring-offset-base-100 w-12 rounded-full ring ring-offset-2">
+          <img className="w-1/2" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        </div>
+      
+      </div>
+      </Link>
+
+      </div>
+
+}
+
+        </div>
+
+
+
       </div>
     );
 };

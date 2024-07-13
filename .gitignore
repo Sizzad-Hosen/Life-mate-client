@@ -1,6 +1,2 @@
-# VITE_apiKey = AIzaSyACBs0_UPpXHNp1Wnz_BXrA017uSd1tdSE
-# VITE_authDomain = lifemate-website.firebaseapp.com
-# VITE_projectId = lifemate-website
-# VITE_storageBucket = lifemate-website.appspot.com
-# VITE_messagingSenderId = 539676034171
-# VITE_appId = 1:539676034171:web:bad9157c1496e3335e4ed
+.env
+.node_modules
