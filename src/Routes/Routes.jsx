@@ -4,12 +4,16 @@ import {
 import Main from "../Layout/Main/Main";
 import Home from "../pages/Home/Home";
 import Medicine from "../pages/Medicine/Medicine";
-import Login from "../pages/Login/Login";
-import SignUp from "../pages/SignUp/SignUp";
+
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
-import OverView from "../pages/Dashboard/OverView/OverView";
+
 import Profile from "../pages/Dashboard/Profile/Profile";
 import AppointmentList from "../pages/Dashboard/AppointmentList/AppointmentList";
+import Overview from "../pages/Dashboard/Overview/Overview";
+import Login from "../pages/Login/Login";
+import SignUp from "../component/SignUp/SignUp";
+// import SignUp from "../pages/SignUp/SignUp";
+
 
 
 
@@ -29,21 +33,22 @@ export const router = createBrowserRouter([
             element:<Medicine></Medicine>
         },
         {
-          path:"login",
-          element:<Login></Login>,
-
-        },
-        {
-          path:"signup",
-          element:<SignUp></SignUp>
-        },
+         path:'login',
+         element:<Login></Login>
+        }
+      ,
+      {
+      path:'signup',
+      element:<SignUp></SignUp>
+      },
         {
           path:"dashboard",
           element:<Dashboard></Dashboard>,
+
           children:[
             {
               path:"overview",
-              element:<OverView></OverView>
+              element:<Overview></Overview>
             },
             {
               path:'profile',

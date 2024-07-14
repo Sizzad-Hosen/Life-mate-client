@@ -23,7 +23,9 @@ const Navbar = () => {
 <li><NavLink to="/doctors">Doctors</NavLink></li>
 <li><NavLink to="/doctors">Ambulence</NavLink></li>
 
-      {user ?
+      {
+        
+      user ?
     <>
        <span>{user?.displayName}</span>
       
@@ -31,7 +33,7 @@ const Navbar = () => {
        </>: <>
         <li><NavLink to="/login">Login</NavLink></li>
         </>
-      }
+      } 
     
     </>
     return (
